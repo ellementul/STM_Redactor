@@ -1,0 +1,49 @@
+.window{
+	margin: 0;
+}
+
+.panel-stroke{
+	display: flex;
+}
+
+.panel-column{
+	display: flex;
+	flex-direction: column;
+}
+
+.panel-wrap{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.layer{
+	box-sizing: border-box;
+	position: absolute;
+}
+
+.box{
+	box-sizing: border-box;
+	position: absolute;
+	
+	margin: 0;
+}
+
+.space-between{
+	justify-content: space-between;
+}
+
+.margin-left{
+	margin-left: 2vh;
+}
+
+
+.invis{
+	display: none;
+}
+
+.invis-input-file{
+	width: 0;
+	height: 0;
+
+	opacity: 1;
+}
