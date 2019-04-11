@@ -13,6 +13,10 @@ function CrTiles(){
 	this.getTile = function(id){
 		return tiles[id];
 	}
+
+	this.getAll = function(){
+		return JSON.parse(JSON.stringify(tiles));
+	}
 }
 
 var Tiles = new CrTiles();
@@ -49,6 +53,27 @@ function CrMap(sizes){
 		}
 
 		return new_mess;
+	}
+
+	this.getAll = function(){
+		var layers = map.map(function(pline){
+			var layer = [];
+
+			pline.forEach((line)=>{
+				line.forEach((box)=>{
+					if(box && layer.indexOf(box) == -1)
+						layer.push(box);
+				})
+			});
+
+			return layer;
+		});
+
+		return JSON.parse(JSON.stringify({
+			name: "Map",
+			sizes: {z: map.length, y: map[0].length, x: map[0][0].length},
+			layers: layers
+		}));
 	}
 
 	function Pen(tile_id, coords){
@@ -120,6 +145,7 @@ module.exports = function CrLogic(Inter){
 
 	function receive(mess){
 		switch(mess.type){
+			case "Tiles":
 			case "Tile": receiveTiles(mess); break;
 			case "Map": receiveMap(mess); break;
 		}
@@ -131,15 +157,27 @@ module.exports = function CrLogic(Inter){
 				mess.tile = Tiles.add(mess.tile);
 				send(mess);
 				break;
+			case "Get":
+				send({
+					action: "Load",
+					type: "Tiles",
+					data: Tiles.getAll()});
+				break;
 		}
 	}
 
 	function receiveMap(mess){
 		switch(mess.action){
-			 case "Draw":
+			case "Draw":
 			 	mess = TileMap.draw(mess);
 			 	send(mess);
 			 	break;
+			case "Get":
+				send({
+					action: "Load",
+					type: "Map",
+					data: TileMap.getAll()});
+				break;
 		}
 	}
 }

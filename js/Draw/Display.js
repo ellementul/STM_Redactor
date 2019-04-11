@@ -12,7 +12,7 @@ const CrMap = require("./Map.js");
 
 
 
-
+var Status = new CrStatusClient();
 
 module.exports = function CrDisplay(Inter){
 	var Send = Inter.connect(receive);
@@ -60,7 +60,21 @@ module.exports = function CrDisplay(Inter){
 				drawMap(e.target.x, e.target.y);
 			}
 		});
+
+		Hear("Save", "click", function(){
+			Status.save();
+			Send({
+				action: "Get",
+				type: "Tiles"
+			});
+			Send({
+				action: "Get",
+				type: "Map"
+			});
+		});
 	}
+
+
 
 	function drawMap(x, y){
 		if(typeof Tool.tile == "number")
@@ -80,9 +94,14 @@ module.exports = function CrDisplay(Inter){
 			});
 	}
 
-
+	
 	//Receive------------------------------------------------------
 	function receive(mess){
+		if(mess.action == "Load"){
+			receiveLoad(mess);
+			return;
+		}
+
 		switch(mess.type){
 			case "Tile": receiveTiles(mess); break;
 			case "Map": receiveMap(mess); break;
@@ -104,5 +123,54 @@ module.exports = function CrDisplay(Inter){
 				TileMap.draw(mess);
 				break;
 		}
+	}
+
+	
+	function receiveLoad(mess){
+		if(Status.is("Save")){
+			if(mess.type == "Tiles")
+				save_stronge.tiles = mess.data;
+			if(mess.type == "Map")
+				save_stronge.map = mess.data;
+			save_stronge.save();
+		}
+
+	}
+}
+
+var save_stronge = {
+	tiles: null, 
+	map: null,
+	save: function(){
+		if(this.tiles && this.map){
+			var file = JSON.stringify({
+				name: "Map",
+				tiles: this.tiles,
+				map: this.map
+			});
+			console.log(file);
+			this.tiles = null;
+			this.map = null;
+			Status.work();
+		}
+	}
+};
+
+function CrStatusClient(){
+
+	var status = "Work";
+
+	this.save = function(){
+		if(status == "Work") 
+			status = "Save";
+	}
+
+	this.work = function(){
+		if(status == "Init" || status == "Save")
+			status = "Work";
+	}
+
+	this.is = function(stat){
+		return status == stat;
 	}
 }

@@ -5,14 +5,23 @@ var types_durability = require("./types_durability.json");
 
 var T = Object.types;
 
+var tile_size = 20;
 var tile_id_type = T.pos(256);
-var coords_type = {x: T.pos(20), y: T.pos(20), z: T.pos(2)};
+var coords_type = {x: T.pos(tile_size), y: T.pos(tile_size), z: T.pos(2)};
+
+
 
 var tile_type = T.obj({
 		id: T.any(undefined, tile_id_type),
 		images: T.arr(T.str(/^[\w\d\s+:;.,?=#\/<>"()-]*$/, 1024*1024)),
 		type: T.any(Object.values(types_durability)),
-		size: T.pos(20)
+		size: T.pos(tile_size)
+});
+
+var box = T.obj({
+	tile_id: tile_id_type,
+	coords: coords_type,
+	size: T.pos(tile_size)
 });
 
 var new_tile_mess_type = T.obj({
@@ -63,16 +72,43 @@ var draw_mess_type_for_display = {
 	tile_id: tile_id_type
 };
 
+var getting_mess_type = T.any({
+	action: "Get",
+	type: "Tiles"
+},{
+	action: "Get",
+	type: "Map"
+})
+
+var loading_mess_type = T.any({
+	action: "Load",
+	type: "Tiles",
+	data: T.arr(tile_type, 256, false)
+},{
+	action: "Load",
+	type: "Map",
+	data: {
+		name: "Map",
+		sizes: {x: 20, y: 20, z: 2},
+		layers: T.arr(T.arr(box, tile_size*tile_size, false), 2)
+	}
+	
+});
+
+
+
 var mess_types_one = T.any([
 	draw_mess_type, 
 	new_tile_mess_type, 
-	clear_mess_type]);
+	clear_mess_type,
+	getting_mess_type]);
 
 var mess_types_two = T.any([
 	draw_mess_type_for_display,
 	new_tile_mess_type, 
 	new_map_mess_type,
-	clear_mess_type_for_display]);
+	clear_mess_type_for_display,
+	loading_mess_type]);
 
 module.exports = [
 	function(val){
