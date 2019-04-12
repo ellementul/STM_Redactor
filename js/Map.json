@@ -1,0 +1,205 @@
+{
+  "name": "Map",
+  "tiles": [
+    {
+      "images": [
+        "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   id=\"svg13344\"\n   version=\"1.1\"\n   viewBox=\"0 0 210 210\"\n   height=\"210mm\"\n   width=\"210mm\">\n  <defs\n     id=\"defs13338\" />\n  <metadata\n     id=\"metadata13341\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     transform=\"translate(0,-87)\"\n     id=\"layer1\">\n    <path\n       id=\"path7763\"\n       style=\"fill:#ffffff;fill-rule:evenodd;stroke:#1b1918;stroke-width:0.24976303;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n       d=\"M -0.20547399,87.395673 V 297.20551 H 209.60429 V 87.395673 Z\" />\n    <g\n       id=\"Layer1123\"\n       transform=\"matrix(0.18068203,0,0,0.18156914,959.95215,-971.92446)\">\n      <g\n         id=\"Layer1124\">\n        <path\n           id=\"path6547\"\n           style=\"fill:#7d8ea5;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5283.3306,6790.2513 v 142.5103 q 0,45.9717 45.9716,45.9717 h 998.6748 q 45.9716,0 45.9716,-45.9717 v -142.5103 q 0,-45.9716 -45.9716,-45.9716 h -998.6748 q -45.9716,0 -45.9716,45.9716 z\" />\n        <path\n           id=\"path6549\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5248.498,6757.9782 v 207.0826 q 0,12.8245 12.8245,12.8245 h 2.8363 q 12.8245,0 12.8245,-12.8245 v -207.0826 q 0,-12.8245 -12.8245,-12.8245 h -2.8363 q -12.8245,0 -12.8245,12.8245 z\" />\n        <path\n           id=\"path6551\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5139.3669,6745.1537 v 232.7316 h 28.4853 v -232.7316 z\" />\n        <path\n           id=\"path6553\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5029.4641,6745.1537 v 232.7316 h 28.4853 v -232.7316 z\" />\n        <path\n           id=\"path6555\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4918.1894,6745.1537 v 232.7316 h 28.4853 v -232.7316 z\" />\n        <path\n           id=\"path6557\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4809.0583,6745.1537 v 232.7316 h 28.4852 v -232.7316 z\" />\n        <path\n           id=\"path6559\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4699.1555,6745.1537 v 232.7316 h 28.4853 v -232.7316 z\" />\n        <path\n           id=\"path6561\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4586.0792,6745.1537 v 232.7316 h 28.4853 v -232.7316 z\" />\n        <path\n           id=\"path6563\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4476.9481,6745.1537 v 232.7316 h 28.4853 v -232.7316 z\" />\n        <path\n           id=\"path6565\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4367.0452,6745.1537 v 232.7316 h 28.4852 v -232.7316 z\" />\n        <path\n           id=\"path6567\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4255.3422,6756.9752 v 209.0886 q 0,11.8215 11.8215,11.8215 h 4.8424 q 11.8214,0 11.8214,-11.8215 v -209.0886 q 0,-11.8215 -11.8214,-11.8215 h -4.8424 q -11.8215,0 -11.8215,11.8215 z\" />\n      </g>\n      <g\n         id=\"Layer1125\">\n        <path\n           id=\"path6570\"\n           style=\"fill:#7d8ea5;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5283.3306,5890.8466 v 142.5103 q 0,45.9716 45.9716,45.9716 h 998.6748 q 45.9716,0 45.9716,-45.9716 v -142.5103 q 0,-45.9717 -45.9716,-45.9717 h -998.6748 q -45.9716,0 -45.9716,45.9717 z\" />\n        <path\n           id=\"path6572\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5248.498,5858.5734 v 207.0827 q 0,12.8244 12.8245,12.8244 h 2.8363 q 12.8245,0 12.8245,-12.8244 v -207.0827 q 0,-12.8244 -12.8245,-12.8244 h -2.8363 q -12.8245,0 -12.8245,12.8244 z\" />\n        <path\n           id=\"path6574\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5139.3669,5845.749 v 232.7315 h 28.4853 V 5845.749 Z\" />\n        <path\n           id=\"path6576\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5029.4641,5845.749 v 232.7315 h 28.4853 V 5845.749 Z\" />\n        <path\n           id=\"path6578\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4918.1894,5845.749 v 232.7315 h 28.4853 V 5845.749 Z\" />\n        <path\n           id=\"path6580\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4809.0583,5845.749 v 232.7315 h 28.4852 V 5845.749 Z\" />\n        <path\n           id=\"path6582\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4699.1555,5845.749 v 232.7315 h 28.4853 V 5845.749 Z\" />\n        <path\n           id=\"path6584\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4586.0792,5845.749 v 232.7315 h 28.4853 V 5845.749 Z\" />\n        <path\n           id=\"path6586\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4476.9481,5845.749 v 232.7315 h 28.4853 V 5845.749 Z\" />\n        <path\n           id=\"path6588\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4367.0452,5845.749 v 232.7315 h 28.4852 V 5845.749 Z\" />\n        <path\n           id=\"path6590\"\n           style=\"fill:#494848;fill-rule:evenodd;stroke:#2c2a29;stroke-width:22.67720032;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4255.3422,5857.5704 v 209.0886 q 0,11.8215 11.8215,11.8215 h 4.8424 q 11.8214,0 11.8214,-11.8215 v -209.0886 q 0,-11.8214 -11.8214,-11.8214 h -4.8424 q -11.8215,0 -11.8215,11.8214 z\" />\n      </g>\n      <path\n         id=\"path6593\"\n         style=\"fill:#c99806;fill-rule:evenodd;stroke:#1b1918;stroke-width:28.3465004;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n         d=\"m -5303.3519,5966.0586 h 1133.8583 v 268.2397 h -1133.8583 z\" />\n      <path\n         id=\"path6595\"\n         style=\"fill:#c99806;fill-rule:evenodd;stroke:#1b1918;stroke-width:28.3465004;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n         d=\"m -5303.352,6593.2661 v 268.2404 h 1133.8584 v -268.2404 z\" />\n      <g\n         id=\"Layer1126\">\n        <path\n           id=\"path6597\"\n           style=\"fill:#cc9a00;fill-rule:evenodd;stroke:#1b1918;stroke-width:28.3465004;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -5136.894,6058.0653 h 929.7779 v 706.1158 h -929.7779 z\" />\n        <g\n           id=\"Layer1127\">\n          <path\n             id=\"path6599\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6222.0359 h 113.8507 q 12.4159,0 12.4159,-12.4159 v -6.9095 q 0,-12.4158 -12.4159,-12.4158 h -113.8507 q -12.4158,0 -12.4158,12.4158 v 6.9095 q 0,12.4159 12.4158,12.4159 z\" />\n          <path\n             id=\"path6601\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6271.39 h 113.8507 q 12.4159,0 12.4159,-12.4159 v -6.9094 q 0,-12.4159 -12.4159,-12.4159 h -113.8507 q -12.4158,0 -12.4158,12.4159 v 6.9094 q 0,12.4159 12.4158,12.4159 z\" />\n          <path\n             id=\"path6603\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6319.0707 h 113.8507 q 12.4159,0 12.4159,-12.4159 v -6.9094 q 0,-12.4159 -12.4159,-12.4159 h -113.8507 q -12.4158,0 -12.4158,12.4159 v 6.9094 q 0,12.4159 12.4158,12.4159 z\" />\n          <path\n             id=\"path6605\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6361.7327 h 113.8507 q 12.4159,0 12.4159,-12.4159 v -6.9094 q 0,-12.4159 -12.4159,-12.4159 h -113.8507 q -12.4158,0 -12.4158,12.4159 v 6.9094 q 0,12.4159 12.4158,12.4159 z\" />\n          <path\n             id=\"path6607\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6408.5768 h 113.8507 q 12.4159,0 12.4159,-12.4158 v -6.9095 q 0,-12.4159 -12.4159,-12.4159 h -113.8507 q -12.4158,0 -12.4158,12.4159 v 6.9095 q 0,12.4158 12.4158,12.4158 z\" />\n          <path\n             id=\"path6609\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6453.5389 h 113.8507 q 12.4159,0 12.4159,-12.4159 v -6.9094 q 0,-12.4159 -12.4159,-12.4159 h -113.8507 q -12.4158,0 -12.4158,12.4159 v 6.9094 q 0,12.4159 12.4158,12.4159 z\" />\n          <path\n             id=\"path6611\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6502.893 h 113.8507 q 12.4159,0 12.4159,-12.4158 v -6.9095 q 0,-12.4159 -12.4159,-12.4159 h -113.8507 q -12.4158,0 -12.4158,12.4159 v 6.9095 q 0,12.4158 12.4158,12.4158 z\" />\n          <path\n             id=\"path6613\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6550.5737 h 113.8507 q 12.4159,0 12.4159,-12.4158 v -6.9095 q 0,-12.4159 -12.4159,-12.4159 h -113.8507 q -12.4158,0 -12.4158,12.4159 v 6.9095 q 0,12.4158 12.4158,12.4158 z\" />\n          <path\n             id=\"path6615\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6593.2357 h 113.8507 q 12.4159,0 12.4159,-12.4159 v -6.9094 q 0,-12.4159 -12.4159,-12.4159 h -113.8507 q -12.4158,0 -12.4158,12.4159 v 6.9094 q 0,12.4159 12.4158,12.4159 z\" />\n          <path\n             id=\"path6617\"\n             style=\"fill:#1b1918;fill-rule:evenodd\"\n             d=\"m -4360.358,6640.0799 h 113.8507 q 12.4159,0 12.4159,-12.4159 v -6.9095 q 0,-12.4158 -12.4159,-12.4158 h -113.8507 q -12.4158,0 -12.4158,12.4158 v 6.9095 q 0,12.4159 12.4158,12.4159 z\" />\n        </g>\n        <path\n           id=\"path6620\"\n           style=\"fill:#1b1918;fill-rule:evenodd\"\n           d=\"m -5054.3919,6501.098 v 145.644 h 15.0443 v -145.644 z\" />\n        <path\n           id=\"path6622\"\n           style=\"fill:#1b1918;fill-rule:evenodd\"\n           d=\"m -5054.3919,6174.8557 v 145.644 h 15.0443 v -145.644 z\" />\n        <path\n           id=\"path6624\"\n           style=\"fill:#fec000;fill-opacity:0;fill-rule:evenodd\"\n           d=\"m -4986.2269,6143.9103 -137.055,-71.2704 v 676.1243 l 137.055,-71.2703 z\" />\n        <path\n           id=\"path6626\"\n           style=\"fill:#a17900;fill-rule:evenodd\"\n           d=\"m -5121.4587,6073.6412 h 901.0174 l -0.056,70.0851 h -766.4918 z\" />\n        <path\n           id=\"path6628\"\n           style=\"fill:#a17900;fill-rule:evenodd\"\n           d=\"m -5121.4587,6747.271 h 901.0174 l -0.056,-70.0851 h -766.4918 z\" />\n      </g>\n      <g\n         id=\"Layer1128\">\n        <path\n           id=\"path6631\"\n           style=\"fill:#cc9a00;fill-rule:evenodd;stroke:#1b1918;stroke-width:28.3465004;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4979.3894,6231.9802 v 350.6974 q 0,98.5104 98.5104,98.5104 h 389.1265 q 98.5104,0 98.5104,-98.5104 v -350.6974 q 0,-98.5104 -98.5104,-98.5104 h -389.1265 q -98.5104,0 -98.5104,98.5104 z\" />\n        <path\n           id=\"path6633\"\n           style=\"fill:#cc9a00;fill-rule:evenodd;stroke:#1b1918;stroke-width:28.3465004;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4686.3157,6241.5777 a 158.7911,165.7512 0 0 1 158.7911,165.7512 158.7911,165.7512 0 1 1 -158.7911,-165.7512 z\" />\n        <path\n           id=\"path6635\"\n           style=\"fill:#cc9a00;fill-rule:evenodd;stroke:#1b1918;stroke-width:28.3465004;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n           d=\"m -4686.3157,6300.7745 a 102.08,106.5543 0 0 1 102.0799,106.5544 102.08,106.5543 0 1 1 -102.0799,-106.5544 z\" />\n      </g>\n      <path\n         id=\"path6638\"\n         style=\"fill:#cc9a00;fill-rule:evenodd;stroke:#1b1918;stroke-width:28.3465004;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n         d=\"m -5232.4762,6398.811 v 24.6276 q 0,34.4786 34.4786,34.4786 h 235.827 q 34.4787,0 34.4787,-34.4786 v -24.6276 q 0,-34.4787 -34.4787,-34.4787 h -235.827 q -34.4786,0 -34.4786,34.4787 z\" />\n      <path\n         id=\"path6640\"\n         style=\"fill:#cc9a00;fill-rule:evenodd;stroke:#1b1918;stroke-width:28.3465004;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none\"\n         d=\"m -5294.2021,6392.3301 v 37.5895 q 0,52.6252 52.6252,52.6252 h 64.5749 q 52.6252,0 52.6252,-52.6252 v -37.5895 q 0,-52.6252 -52.6252,-52.6252 h -64.5749 q -52.6252,0 -52.6252,52.6252 z\" />\n    </g>\n  </g>\n</svg>\n"
+      ],
+      "type": "wood",
+      "size": 2,
+      "id": 0
+    },
+    {
+      "images": [
+        "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   id=\"svg8\"\n   version=\"1.1\"\n   viewBox=\"0 0 135.46666 135.46667\"\n   height=\"512\"\n   width=\"512\">\n  <defs\n     id=\"defs2\" />\n  <metadata\n     id=\"metadata5\">\n    <rdf:RDF>\n      <cc:Work\n         rdf:about=\"\">\n        <dc:format>image/svg+xml</dc:format>\n        <dc:type\n           rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />\n        <dc:title></dc:title>\n      </cc:Work>\n    </rdf:RDF>\n  </metadata>\n  <g\n     style=\"fill:#ff0000\"\n     transform=\"matrix(-1,0,0,1,136.07194,-161.53332)\"\n     id=\"layer1\">\n    <path\n       transform=\"scale(0.26458333)\"\n       id=\"path911\"\n       d=\"\"\n       style=\"opacity:0.469;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1.06519401;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1\" />\n    <path\n       transform=\"scale(0.26458333)\"\n       id=\"path915\"\n       d=\"\"\n       style=\"opacity:0.469;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1.06519401;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1\" />\n    <path\n       transform=\"scale(0.26458333)\"\n       id=\"path923\"\n       d=\"\"\n       style=\"opacity:0.469;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.53259701;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1\" />\n    <path\n       transform=\"scale(0.26458333)\"\n       id=\"path925\"\n       d=\"\"\n       style=\"opacity:0.469;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.53259701;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1\" />\n    <path\n       transform=\"scale(0.26458333)\"\n       id=\"path931\"\n       d=\"\"\n       style=\"opacity:0.469;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.53259701;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1\" />\n    <path\n       transform=\"scale(0.26458333)\"\n       id=\"path957\"\n       d=\"\"\n       style=\"opacity:0.469;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1.06519401;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1\" />\n    <path\n       transform=\"scale(0.26458333)\"\n       id=\"path959\"\n       d=\"\"\n       style=\"opacity:0.469;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1.06519401;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1\" />\n    <path\n       id=\"rect977\"\n       d=\"m 0.37520522,231.98213 a 32.787609,43.37394 0 0 0 32.78728878,43.3738 32.787609,43.37394 0 0 0 6.78811,-0.99155 H 135.69673 V 187.62217 H 32.461471 v 1.0195 A 32.787609,43.37394 0 0 0 0.37520522,231.98213 Z\"\n       style=\"opacity:1;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.39907616;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1\" />\n  </g>\n</svg>\n"
+      ],
+      "type": "steel",
+      "size": 1,
+      "id": 1
+    }
+  ],
+  "map": {
+    "name": "Map",
+    "sizes": {
+      "layers": 2,
+      "height": 20,
+      "width": 20
+    },
+    "layers": [
+      [],
+      [
+        {
+          "coords": {
+            "x": 9,
+            "y": 4,
+            "z": 1
+          },
+          "size": 2,
+          "tile_id": 0
+        },
+        {
+          "coords": {
+            "x": 9,
+            "y": 6,
+            "z": 1
+          },
+          "size": 2,
+          "tile_id": 0
+        },
+        {
+          "coords": {
+            "x": 7,
+            "y": 9,
+            "z": 1
+          },
+          "size": 2,
+          "tile_id": 0
+        },
+        {
+          "coords": {
+            "x": 0,
+            "y": 11,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 1,
+            "y": 11,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 2,
+            "y": 11,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 3,
+            "y": 11,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 4,
+            "y": 11,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 5,
+            "y": 11,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 6,
+            "y": 11,
+            "z": 1
+          },
+          "size": 2,
+          "tile_id": 0
+        },
+        {
+          "coords": {
+            "x": 8,
+            "y": 11,
+            "z": 1
+          },
+          "size": 2,
+          "tile_id": 0
+        },
+        {
+          "coords": {
+            "x": 10,
+            "y": 11,
+            "z": 1
+          },
+          "size": 2,
+          "tile_id": 0
+        },
+        {
+          "coords": {
+            "x": 12,
+            "y": 11,
+            "z": 1
+          },
+          "size": 2,
+          "tile_id": 0
+        },
+        {
+          "coords": {
+            "x": 0,
+            "y": 12,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 1,
+            "y": 12,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 2,
+            "y": 12,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 3,
+            "y": 12,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 4,
+            "y": 12,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        },
+        {
+          "coords": {
+            "x": 5,
+            "y": 12,
+            "z": 1
+          },
+          "size": 1,
+          "tile_id": 1
+        }
+      ]
+    ]
+  }
+}

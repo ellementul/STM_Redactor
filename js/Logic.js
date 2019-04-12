@@ -26,12 +26,12 @@ function CrMap(sizes){
 	var cr_pline = Array.create.bind(null, cr_line, sizes.width, true);
 	var map = Array.create(cr_pline, sizes.layers);
 
-	this.load = function(){
-		return {
-			action: "Create",
-			type: "Map",
-			sizes: sizes
-		}
+	this.load = function(loaded_layers){
+		loaded_layers.forEach(layer => 
+			layer.forEach(box =>
+				Pen(box.tile_id, box.coords)
+			)
+		);
 	}
 
 	this.draw = function(mess){
@@ -71,9 +71,13 @@ function CrMap(sizes){
 
 		return JSON.parse(JSON.stringify({
 			name: "Map",
-			sizes: {z: map.length, y: map[0].length, x: map[0][0].length},
+			sizes: this.getSizes(),
 			layers: layers
 		}));
+	}
+
+	this.getSizes = function(){
+		return {layers: map.length, height: map[0].length, width: map[0][0].length};
 	}
 
 	function Pen(tile_id, coords){
@@ -137,14 +141,18 @@ function CrMap(sizes){
 	}
 }
 
-var TileMap = new CrMap(map_size);
+
 
 module.exports = function CrLogic(Inter){
 	var send = Inter.connect(receive);
-	send(TileMap.load());
+
+	var TileMap = null;
+
+	
 
 	function receive(mess){
 		switch(mess.type){
+			case "File": loadFile(mess); break;
 			case "Tiles":
 			case "Tile": receiveTiles(mess); break;
 			case "Map": receiveMap(mess); break;
@@ -168,6 +176,9 @@ module.exports = function CrLogic(Inter){
 
 	function receiveMap(mess){
 		switch(mess.action){
+			case "Create":
+				initMap(mess);
+				break;
 			case "Draw":
 			 	mess = TileMap.draw(mess);
 			 	send(mess);
@@ -179,5 +190,42 @@ module.exports = function CrLogic(Inter){
 					data: TileMap.getAll()});
 				break;
 		}
+	}
+
+	function initMap(mess){
+		if(!TileMap){
+			TileMap = new CrMap(mess.sizes);
+			send({
+				action: "Create",
+				type: "Map",
+				sizes: TileMap.getSizes()
+			});
+		}
+	}
+
+	function loadFile(mess){
+		if(mess.action != "Load") return;
+
+		if(TileMap || Tiles.getAll().length) return;
+
+		var tiles = mess.file.tiles;
+		var tile_map = mess.file.map;
+
+		tiles.forEach(tile => Tiles.add(tile));
+		send({
+			action: "Load",
+			type: "Tiles",
+			data: Tiles.getAll()
+		});
+
+		TileMap = new CrMap(tile_map.sizes);
+		TileMap.load(tile_map.layers);
+
+		send({
+			action: "Load",
+			type: "Map",
+			data: TileMap.getAll()
+		});
+
 	}
 }

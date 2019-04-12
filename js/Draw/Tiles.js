@@ -17,5 +17,11 @@ module.exports = function CrTiles(container){
 		return tiles[id];
 	}
 
+	tiles_cont.load = function(loaded_tiles){
+		loaded_tiles.forEach(tile =>
+			tiles_cont.add(tile)
+		);
+	}
+
 	return tiles_cont;
 }

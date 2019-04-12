@@ -59,7 +59,7 @@ module.exports = function CrInterfice(testes, log){
 	}
 	
 	function TwoConnect(outputFunc){
-		if(InputOne.take) InputOne.take(outputFunc);
+		if(InputOne.take) setTimeout(InputOne.take.bind(null, outputFunc), 0);
 		InputOne = outputFunc;
 		
 		return OutputOne;

@@ -6,14 +6,26 @@ var Tiles = Lib.getNode("Tiles");
 
 module.exports = function CrMap(){
 
-	map_cont.load = function(sizes){
+	map_cont.load = function(sizes, loaded_layers){
 		var Grid = CrGrid(sizes, "grid-border");
 		Grid.setAttribute("id", "Grid");
 
-		while(sizes.layers--)
+		var i = sizes.layers;
+		while(i--)
 			map_cont.appendChild(CrLayer(sizes));
 
+		if(loaded_layers)
+			loaded_layers.forEach(loadLayer);
+
 		map_cont.appendChild(Grid);
+	}
+
+	function loadLayer(loaded_layer){
+		loaded_layer.forEach(box =>{
+			var tile = Tiles.getTile(box.tile_id);
+
+			map_cont.children[box.coords.z].pen(tile, [box.coords]);
+		});
 	}
 
 	map_cont.draw = function(mess){

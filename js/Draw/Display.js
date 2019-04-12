@@ -1,4 +1,5 @@
 const Base64 = require('js-base64').Base64;
+const FileSys = require("../SysFiles.js");
 
 const CrViewLogic = require("./ViewLogic.js");
 
@@ -10,12 +11,26 @@ const CrTiles = require("./Tiles.js");
 const CrMap = require("./Map.js");
 
 
-
+var map_size = {width: 20, height: 20, layers: 2};
+var loaded_map = require("../Map.json");
 
 var Status = new CrStatusClient();
 
 module.exports = function CrDisplay(Inter){
 	var Send = Inter.connect(receive);
+
+
+	Send({
+		action: "Create",
+		type: "Map",
+		sizes: map_size
+	});
+
+	/*Send({
+		action: "Load",
+		type: "File",
+		file: loaded_map
+	});*/
 
 	var Tiles = new CrTiles();
 
@@ -44,6 +59,7 @@ module.exports = function CrDisplay(Inter){
 	
 
 	function initMap(){
+		Status.work();
 
 		Hear("Grid", "mousedown", function(e){
 				this.is_down = true;
@@ -127,28 +143,45 @@ module.exports = function CrDisplay(Inter){
 
 	
 	function receiveLoad(mess){
+		if(Status.is("Init")){
+			if(mess.type == "Tiles"){
+				Tiles.load(mess.data);
+				stronge.tiles = true;
+			}
+			if(mess.type == "Map"){
+				TileMap.load(mess.data.sizes, mess.data.layers);
+				stronge.map = true;
+			}
+			if(stronge.tiles && stronge.map){
+
+				initMap();
+				stronge.tiles = null;
+				stronge.map = null;
+			}
+		}
+
 		if(Status.is("Save")){
 			if(mess.type == "Tiles")
-				save_stronge.tiles = mess.data;
+				stronge.tiles = mess.data;
 			if(mess.type == "Map")
-				save_stronge.map = mess.data;
-			save_stronge.save();
+				stronge.map = mess.data;
+			stronge.save();
 		}
 
 	}
 }
 
-var save_stronge = {
+var stronge = {
 	tiles: null, 
 	map: null,
 	save: function(){
 		if(this.tiles && this.map){
 			var file = JSON.stringify({
-				name: "Map",
+				name: this.map.name,
 				tiles: this.tiles,
 				map: this.map
-			});
-			console.log(file);
+			}, null, 2);
+			FileSys.save(this.map.name + ".json", file);
 			this.tiles = null;
 			this.map = null;
 			Status.work();
@@ -158,7 +191,7 @@ var save_stronge = {
 
 function CrStatusClient(){
 
-	var status = "Work";
+	var status = "Init";
 
 	this.save = function(){
 		if(status == "Work") 
