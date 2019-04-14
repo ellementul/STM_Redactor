@@ -1,3 +1,4 @@
+require("./mof.js");
 const Lib = require("./drawLib.js");
 
 var map_size = 20;
@@ -11,8 +12,9 @@ module.exports = function CrMap(){
 		Grid.setAttribute("id", "Grid");
 
 		var i = sizes.layers;
-		while(i--)
+		while(i--){
 			map_cont.appendChild(CrLayer(sizes));
+		}
 
 		if(loaded_layers)
 			loaded_layers.forEach(loadLayer);
@@ -21,7 +23,7 @@ module.exports = function CrMap(){
 	}
 
 	map_cont.clear = function(){
-		Array.from(map_cont.children).forEach(elem => elem.remove());
+		throw new Error();
 	}
 
 	function loadLayer(loaded_layer){
@@ -44,6 +46,24 @@ module.exports = function CrMap(){
 		if(mess.tool == "Clear") this.children[coords[0].z].clear(mess.coords);
 	}
 
+	var layer = 0;
+	map_cont.addGetSet("layer", 
+		function(){
+			return layer;
+		},
+		function(val){
+			if(map_cont.children[val]){
+				layer = +val;
+				Array.from(map_cont.children).forEach(function(lay, i){
+					if(i <= layer)
+						lay.show();
+					else
+						lay.hide();
+				});
+			}
+		}
+	);
+
 	return map_cont;
 	
 }
@@ -58,11 +78,11 @@ function CrLayer(sizes){
 	var h_size = 100 / sizes.height;
 
 	layer.show = function(){
-		layer.style.opacity = 0;
+		layer.style.opacity = 1;
 	}
 
 	layer.hide = function(){
-		layer.style.opacity = 1;
+		layer.style.opacity = 0;
 	}
 
 	layer.clear = function(coords){
