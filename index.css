@@ -2,6 +2,19 @@ body{
 	background-color: #ccc;
 }
 
+.blanket{
+	background-color: #cccc;
+}
+
+.dialog{
+	height: 35vh;
+}
+
+.dailog-button{
+	height: 35vh;
+	width: 35vh;
+}
+
 .map{
 	position: relative;
 
@@ -153,4 +166,18 @@ input{
 	margin-bottom: 1.5vh;
 
 	background-image: url("img/add_img.svg");
+}
+
+.new-img{
+	background-size: contain;
+	background-color: white;
+	background-image: url("img/new.svg");
+
+}
+
+.open-img{
+	background-size: contain;
+	background-color: white;
+	background-image: url("img/open.svg");
+
 }

@@ -20,6 +20,10 @@ module.exports = function CrMap(){
 		map_cont.appendChild(Grid);
 	}
 
+	map_cont.clear = function(){
+		Array.from(map_cont.children).forEach(elem => elem.remove());
+	}
+
 	function loadLayer(loaded_layer){
 		loaded_layer.forEach(box =>{
 			var tile = Tiles.getTile(box.tile_id);

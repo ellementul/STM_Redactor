@@ -35,6 +35,11 @@ module.exports = function CrTools(){
 		}
 	);
 
+	this.clear = function(){
+		pallet = {};
+		this.type = "Pen";
+	}
+
 	var tileView = null;
 
 	function changeTileView(image){

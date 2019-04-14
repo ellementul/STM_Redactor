@@ -10,56 +10,81 @@ const CrTool = require("./Tools.js");
 const CrTiles = require("./Tiles.js");
 const CrMap = require("./Map.js");
 
+const CrStatus = require("./Status.js");
+
 
 var map_size = {width: 20, height: 20, layers: 2};
 var loaded_map = require("../Map.json");
 
-var Status = new CrStatusClient();
+
 
 module.exports = function CrDisplay(Inter){
 	var Send = Inter.connect(receive);
 
-
-	Send({
-		action: "Create",
-		type: "Map",
-		sizes: map_size
-	});
-
-	/*Send({
-		action: "Load",
-		type: "File",
-		file: loaded_map
-	});*/
-
-	var Tiles = new CrTiles();
+	
 
 	var AddForm = new CrAddForm();
+	var Tool = new CrTool();
 
+	var Tiles = new CrTiles();
 	var TileMap = new CrMap();
 
-	var Tool = new CrTool();
+	var Status = new CrStatus(clearMap);
 
 
 	var ViewLogic = new CrViewLogic(AddForm, Tool);
 
-	Hear("AddForm", "submit", function(){
-		var tile = AddForm.getTile();
-		if(tile){
-			Send({
-				action: "Add",
-				type: "Tile",
-				tile: tile
-			});
-			ViewLogic.switchAddForm();
-			AddForm.clear();
+	
+	Hear("NewFile", "click", function(){
+		Send({
+			action: "Create",
+			type: "Map",
+			sizes: map_size
+		});
+	});
+
+	Hear("OpenFileInput", "change", function(){
+		if(this.files[0]){
+
+			var reader = new FileReader();
+			reader.onload = function(e){
+				loadMap(JSON.parse(e.target.result));
+			};
+			reader.readAsText(this.files[0]);
 		}
 	});
 
+	function clearMap(){
+		Tiles.clear();
+		Tool.clear();
+		TileMap.clear();
+
+		Status.reset();
+	}
 	
+	function loadMap(loaded_map){
+		Send({
+			action: "Load",
+			type: "File",
+			file: loaded_map
+		});
+	}
 
 	function initMap(){
 		Status.work();
+
+		Hear("AddForm", "submit", function(){
+			var tile = AddForm.getTile();
+			if(tile){
+				Send({
+					action: "Add",
+					type: "Tile",
+					tile: tile
+				});
+				ViewLogic.switchAddForm();
+				AddForm.clear();
+			}
+		});
 
 		Hear("Grid", "mousedown", function(e){
 				this.is_down = true;
@@ -189,21 +214,3 @@ var stronge = {
 	}
 };
 
-function CrStatusClient(){
-
-	var status = "Init";
-
-	this.save = function(){
-		if(status == "Work") 
-			status = "Save";
-	}
-
-	this.work = function(){
-		if(status == "Init" || status == "Save")
-			status = "Work";
-	}
-
-	this.is = function(stat){
-		return status == stat;
-	}
-}

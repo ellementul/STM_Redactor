@@ -23,5 +23,10 @@ module.exports = function CrTiles(container){
 		);
 	}
 
+	tiles_cont.clear = function(){
+		tiles = [];
+		Array.from(tiles_cont.children).forEach(elem => elem.remove());
+	}
+
 	return tiles_cont;
 }

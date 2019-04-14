@@ -24,7 +24,7 @@ module.exports = function(Form, Tool){
 		}
 	});
 
-	Hear(["Tools", "Tiles", "Open", "Save"], "click", Press);
+	Hear(["Tools", "Tiles", "NewFile", "OpenFile", "Save"], "click", Press);
 
 	Hear("Map", "dragstart", function(e){
 		e.preventDefault();
