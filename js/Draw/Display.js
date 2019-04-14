@@ -16,7 +16,7 @@ const CrStatus = require("./Status.js");
 var map_size = {width: 20, height: 20, layers: 2};
 var loaded_map = require("../Map.json");
 
-
+var Status = new CrStatus();
 
 module.exports = function CrDisplay(Inter){
 	var Send = Inter.connect(receive);
@@ -29,7 +29,7 @@ module.exports = function CrDisplay(Inter){
 	var Tiles = new CrTiles();
 	var TileMap = new CrMap();
 
-	var Status = new CrStatus(clearMap);
+	
 
 
 	var ViewLogic = new CrViewLogic(AddForm, Tool);
@@ -102,6 +102,10 @@ module.exports = function CrDisplay(Inter){
 			}
 		});
 
+		Hear(["Layer0", "Layer1"], "click", function(e){
+			TileMap.layer = this.getAttribute("layer");
+		});
+
 		Hear("Save", "click", function(){
 			Status.save();
 			Send({
@@ -123,7 +127,7 @@ module.exports = function CrDisplay(Inter){
 				action: "Draw",
 				type: "Map",
 				tool: Tool.type,
-				coords: {x: x, y: y, z: 1},
+				coords: {x: x, y: y, z: TileMap.layer},
 				tile_id: Tool.tile
 			});
 		else if(Tool.type == "Clear")
@@ -131,7 +135,7 @@ module.exports = function CrDisplay(Inter){
 				action: "Draw",
 				type: "Map",
 				tool: Tool.type,
-				coords: {x: x, y: y, z: 1}
+				coords: {x: x, y: y, z: TileMap.layer}
 			});
 	}
 
