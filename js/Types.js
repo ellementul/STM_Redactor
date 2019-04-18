@@ -13,7 +13,7 @@ var coords_type = {x: T.pos(map_size), y: T.pos(map_size), z: T.pos(2)};
 
 var tile_type = T.obj({
 		id: T.any(undefined, tile_id_type),
-		images: T.arr(T.str(/^[\w\d\s+:;.,?=#\/<>"()-]*$/, 1024*1024)),
+		images: T.arr(T.str(/^[\w\d\s+:;.,?!=#\/<>"()-\]}{]*$/, 1024*1024)),
 		type: T.any(Object.values(types_durability)),
 		size: T.pos(map_size)
 });
