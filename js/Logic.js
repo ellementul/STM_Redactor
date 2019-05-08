@@ -21,7 +21,10 @@ function CrTiles(){
 
 var Tiles = new CrTiles();
 
-function CrMap(sizes){
+function CrMap(map){
+	var sizes = map.sizes;
+	var map_name = map.name;
+
 	var cr_line = Array.create.bind(null, null, sizes.width);
 	var cr_pline = Array.create.bind(null, cr_line, sizes.width, true);
 	var map = Array.create(cr_pline, sizes.layers);
@@ -70,10 +73,14 @@ function CrMap(sizes){
 		});
 
 		return JSON.parse(JSON.stringify({
-			name: "Map",
+			name: this.getName(),
 			sizes: this.getSizes(),
 			layers: layers
 		}));
+	}
+
+	this.getName = function(){
+		return map_name;
 	}
 
 	this.getSizes = function(){
@@ -194,11 +201,14 @@ module.exports = function CrLogic(Inter){
 
 	function initMap(mess){
 		if(!TileMap){
-			TileMap = new CrMap(mess.sizes);
+			TileMap = new CrMap(mess.map);
 			send({
 				action: "Create",
 				type: "Map",
-				sizes: TileMap.getSizes()
+				map: {
+					name: TileMap.getName(),
+					sizes: TileMap.getSizes()
+				}
 			});
 		}
 	}
@@ -218,7 +228,7 @@ module.exports = function CrLogic(Inter){
 			data: Tiles.getAll()
 		});
 
-		TileMap = new CrMap(tile_map.sizes);
+		TileMap = new CrMap(tile_map);
 		TileMap.load(tile_map.layers);
 
 		send({

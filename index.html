@@ -14,11 +14,12 @@
 			<div id="Map" class="map">
 			</div>
 			<div id="Tabs" class="panel-column tabs">
-				<div id="TabsSwitches" class="panel-stroke">
+				<div id="TabsSwitches" class="panel-stroke switch-tabs_list">
 					<img id="Save" class="switch-tab" src="img/save.svg"/>
 
-					<div id="Layer0" class="margin-left switch-tab" layer="0">0</div>
-					<div id="Layer1" class="switch-tab" layer="1">1</div>
+					<div id="Layers" class="margin-left panel-stroke switch-tabs_list"></div>
+
+					<img id="ShowGrid" class="margin-left switch-tab" src="img/grid.svg"/>
 				</div>
 				<div id="TilesTab_0" class="panel-column tab">
 					<div id="TilesActions" class="panel-stroke space-between">
@@ -47,6 +48,7 @@
 							<input placeholder="tag"></input>
 						</div>
 						<button class="add-submit">OK</button>
+						<button id="ResetForm" class="add-submit reset-submit">Reset</button>
 					</form>
 					<div id="Tiles" class="panel-wrap tiles-list"></div>
 				</div>
@@ -54,10 +56,18 @@
 		</div>
 		<div id="InitBlanket" class="center blanket">
 			<div class="dialog panel-stroke">
-				<div id="NewFile" class="dailog-button new-img"></div>
+				<div id="new_file_switch" class="dailog-button new-img"></div>
 				<label id="OpenFile" for="OpenFileInput" class="dailog-button open-img">
 					<input id="OpenFileInput" type="file" class="invis-input-file">
 				</label>
+				<form id="NewFile" class="panel-column invis">
+					<input name="file_name" placeholder="map name"></input>
+					W: <input name="map_size_w" type="number" min="1" value="20" class="input-size"></input>
+					H: <input name="map_size_h" type="number" min="1" value="20" class="input-size"></input>
+					L: <input name="map_size_l" type="number" min="1" value="2" class="input-size"></input>
+					<button class="add-submit">OK</button>
+					<button id="reset_new_file" type="reset" class="add-submit reset-submit">Reset</button>
+				</form>
 			</div>
 		</div>
 		<script src="bundle.js"></script>

@@ -5,11 +5,11 @@ var types_durability = require("./types_durability.json");
 
 var T = Object.types;
 
-var map_size = 20;
-var tile_id_type = T.pos(256);
-var coords_type = {x: T.pos(map_size), y: T.pos(map_size), z: T.pos(2)};
+var map_size = 256;
+var tile_id_type = T.pos(map_size * map_size);
+var coords_type = {x: T.pos(map_size), y: T.pos(map_size), z: T.pos(map_size)};
 
-
+var map_name_type = T.str(/^[\w\d]*$/, 24);
 
 var tile_type = T.obj({
 		id: T.any(undefined, tile_id_type),
@@ -31,15 +31,19 @@ var new_tile_mess_type = T.obj({
 });
 
 var map_size_type = T.obj({
-	width: 20, 
-	height: 20, 
-	layers: 2
+	width: T.pos(map_size), 
+	height: T.pos(map_size), 
+	layers: T.pos(map_size)
 });
 
 var new_map_mess_type = T.obj({
 	action: "Create",
 	type: "Map",
-	sizes: map_size_type
+	map:{
+		name: map_name_type,
+		sizes: map_size_type,
+	}
+	
 });
 
 var draw_mess_type = {
@@ -81,31 +85,33 @@ var getting_mess_type = T.any({
 })
 
 var map_type = {
-	name: "Map",
-	sizes: {width: map_size, height: map_size, layers: 2},
-	layers: T.arr(T.arr(box, map_size*map_size, false), 2)
+	name: map_name_type,
+	sizes: {width: T.pos(map_size), height: T.pos(map_size), layers: T.pos(map_size)},
+	layers: T.arr(T.arr(box, map_size*map_size, false), map_size, false)
 };
 
-var loading_mess_type = T.any({
+var loading_tiles_mess_type = T.obj({
 	action: "Load",
 	type: "Tiles",
 	data: T.arr(tile_type, 256, false)
-},{
+});
+
+var loading_map_mess_type = T.obj({
 	action: "Load",
 	type: "Map",
 	data: map_type
 	
 });
 
-var loading_file_mess_type = {
+var loading_file_mess_type = T.obj({
 	action: "Load",
 	type: "File",
 	file: {
-		name: "Map",
+		name: map_name_type,
 		tiles: T.arr(tile_type, 256, false),
 		map: map_type
 	}
-};
+});
 
 
 var mess_types_one = T.any([
@@ -114,21 +120,42 @@ var mess_types_one = T.any([
 	new_map_mess_type, 
 	clear_mess_type,
 	getting_mess_type,
-	loading_file_mess_type]);
+	]);
 
 var mess_types_two = T.any([
 	draw_mess_type_for_display,
 	new_tile_mess_type, 
 	new_map_mess_type,
-	clear_mess_type_for_display,
-	loading_mess_type]);
+	clear_mess_type_for_display]);
+
+function TestTypeLoad(mess){
+	switch(mess.type){
+		case "File": isError(loading_file_mess_type, mess); break;
+		case "Tiles": isError(loading_tiles_mess_type, mess); break;
+		case "Map": isError(loading_map_mess_type, mess); break;
+		default: throw new TypeError(val);
+	}
+}
 
 module.exports = [
-	function(val){
-		if(mess_types_one.test(val))
-			throw mess_types_one.test(val);
+	function(mess){
+		if(mess.action == "Load"){
+			TestTypeLoad(mess);
+			return;
+		}
+		if(mess_types_one.test(mess))
+			throw mess_types_one.test(mess);
 	}, 
-	function(val){
-		if(mess_types_two.test(val))
-			throw mess_types_two.test(val);
+	function(mess){
+		if(mess.action == "Load"){
+			TestTypeLoad(mess);
+			return;
+		}
+		if(mess_types_two.test(mess))
+			throw mess_types_two.test(mess);
 	}];
+
+function isError(type, val){
+	if(type.test(val))
+			throw type.test(val);
+}

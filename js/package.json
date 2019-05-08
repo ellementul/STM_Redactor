@@ -16,6 +16,6 @@
     "electron": "^4.0.4",
     "file-saver": "^2.0.0",
     "js-base64": "^2.5.1",
-    "typesjs": "1.2.0"
+    "typesjs": "git+https://github.com/ellementul/typesjs.git"
   }
 }

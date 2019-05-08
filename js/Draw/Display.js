@@ -14,7 +14,6 @@ const CrStatus = require("./Status.js");
 
 
 var map_size = {width: 20, height: 20, layers: 2};
-var loaded_map = require("../Map.json");
 
 var Status = new CrStatus();
 
@@ -34,13 +33,22 @@ module.exports = function CrDisplay(Inter){
 
 	var ViewLogic = new CrViewLogic(AddForm, Tool);
 
-	
-	Hear("NewFile", "click", function(){
-		Send({
-			action: "Create",
-			type: "Map",
-			sizes: map_size
-		});
+
+	Hear("NewFile", "submit", function(){
+		if(this.file_name.value.length) 
+			Send({
+				action: "Create",
+				type: "Map",
+				map: {
+					name: this.file_name.value,
+					sizes: {
+						width: +this.map_size_w.value, 
+						height: +this.map_size_h.value, 
+						layers: +this.map_size_l.value
+					}
+				}
+				
+			});
 	});
 
 	Hear("OpenFileInput", "change", function(){
@@ -102,8 +110,9 @@ module.exports = function CrDisplay(Inter){
 			}
 		});
 
-		Hear(["Layer0", "Layer1"], "click", function(e){
-			TileMap.layer = this.getAttribute("layer");
+		Hear("Layers", "click", function(e){
+			TileMap.layer = this.value;
+			console.log(TileMap.layer)
 		});
 
 		Hear("Save", "click", function(){
@@ -162,7 +171,7 @@ module.exports = function CrDisplay(Inter){
 	function receiveMap(mess){
 		switch(mess.action){
 			case "Create":  
-				TileMap.load(mess.sizes); initMap(); 
+				TileMap.load(mess.map.sizes); initMap(); 
 				break;
 			case "Draw":
 				TileMap.draw(mess);

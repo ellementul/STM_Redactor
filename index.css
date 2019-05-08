@@ -40,9 +40,20 @@ body{
 	height: 100vh;
 }
 
+.switch-tabs_list{
+	height: 9vh;
+}
+
+.switch-tabs_list > p{
+	width: 9vh;
+
+	margin: 0.1vh;
+	
+	background-color: white;
+}
+
 .switch-tab{
 	width: 9vh;
-	height: 9vh;
 
 	margin: 0.1vh;
 	
@@ -155,6 +166,11 @@ input{
 	color: #008000;
 
 	background-color: white;
+}
+
+.reset-submit{
+	border: solid 0.1vh #800000;
+	color: #800000;
 }
 
 .press{

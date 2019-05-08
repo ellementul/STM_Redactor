@@ -1,4 +1,6 @@
 const Lib = require("./drawLib.js");
+
+var CrList = Lib.drawList;
 var durability_types_list = require("../types_durability.json");
 
 
@@ -9,7 +11,7 @@ var tile_size_cont = Lib.getNode("TileSize");
 module.exports = function CrAddForm(){
 	return {
 			Images: new CrImages(images_cont),
-			Type: new CrList(durability_types_cont, durability_types_list),
+			Type: new CrList(durability_types_cont, durability_types_list, "option-change"),
 			Size: tile_size_cont,
 			clear: function(){
 				this.Images.clear();
@@ -35,7 +37,7 @@ function CrImages(container){
 
 	this.addGetSet("value",
 		function(){
-			if(images.length > 0) return images;
+			if(images.length > 0) return [images[0]];
 		}
 	);
 
@@ -50,28 +52,7 @@ function CrImages(container){
 	}
 }
 
-function CrList(container, list){
 
-	for (var val in list){
-		var opt = document.createElement("p");
-		opt.value = list[val];
-		opt.innerHTML = val;
-		opt.onclick = onclick;
-		container.appendChild(opt);
-	}
-	var defOpt = container.children[0];
-	container.value = defOpt.value;
-	defOpt.classList.add("option-change");
-
-	return container;
-
-	function onclick(){
-		Array.from(this.parentElement.children).forEach(elem => elem.classList.remove("option-change"));
-		this.parentElement.value = this.value;
-		console.log(this.value);
-		this.classList.add("option-change");
-	}
-}
 
 function newTile(send){
 	if(this.Images.value 
@@ -84,10 +65,4 @@ function newTile(send){
 		};
 	}
 
-}
-
-function getNode(id){
-	var elem = document.getElementById(id);
-	if(!elem) throw new Error("Elem is not find!");
-	return elem;
 }

@@ -1,9 +1,11 @@
 require("./mof.js");
 const Lib = require("./drawLib.js");
+var CrList = Lib.drawList;
 
 var map_size = 20;
 var map_cont = Lib.getNode("Map");
 var Tiles = Lib.getNode("Tiles");
+var layers_cont = Lib.getNode("Layers");
 
 module.exports = function CrMap(){
 
@@ -12,12 +14,16 @@ module.exports = function CrMap(){
 		Grid.setAttribute("id", "Grid");
 
 		var i = sizes.layers;
+		var layer_list = [];
 		while(i--){
 			map_cont.appendChild(CrLayer(sizes));
+			layer_list[i] = i;
 		}
+		CrList(layers_cont, layer_list, "option-change");
 
 		if(loaded_layers)
 			loaded_layers.forEach(loadLayer);
+
 
 		map_cont.appendChild(Grid);
 	}
@@ -26,7 +32,7 @@ module.exports = function CrMap(){
 		throw new Error();
 	}
 
-	function loadLayer(loaded_layer){
+	function loadLayer(loaded_layer, i){
 		loaded_layer.forEach(box =>{
 			var tile = Tiles.getTile(box.tile_id);
 
@@ -55,10 +61,12 @@ module.exports = function CrMap(){
 			if(map_cont.children[val]){
 				layer = +val;
 				Array.from(map_cont.children).forEach(function(lay, i){
-					if(i <= layer)
-						lay.show();
-					else
-						lay.hide();
+					if(lay.is_layer){
+						if(i <= layer)
+							lay.show();
+						else 
+							lay.hide();
+					}
 				});
 			}
 		}
@@ -71,6 +79,7 @@ module.exports = function CrMap(){
 function CrLayer(sizes){
 	var layer = document.createElement("div");
 	layer.classList.add("layer");
+	layer.is_layer = true;
 	layer.style.width = "100%";
 	layer.style.height = "100%";
 
@@ -120,14 +129,7 @@ function CrGrid(sizes, border){
 	layer.style.width = "100%";
 	layer.style.height = "100%";
 	drawGrid(layer, sizes, border);
-
-	layer.show = function(){
-		layer.style.opacity = 0;
-	}
-
-	layer.hide = function(){
-		layer.style.opacity = 1;
-	}
+	
 
 	return layer;
 }
