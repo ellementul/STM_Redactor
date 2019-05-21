@@ -8,6 +8,7 @@ var T = Object.types;
 var map_size = 256;
 var tile_id_type = T.pos(map_size * map_size);
 var coords_type = {x: T.pos(map_size), y: T.pos(map_size), z: T.pos(map_size)};
+var rotate_tile = T.pos(4);
 
 var map_name_type = T.str(/^[\w\d]*$/, 24);
 
@@ -21,7 +22,8 @@ var tile_type = T.obj({
 var box = T.obj({
 	tile_id: tile_id_type,
 	coords: coords_type,
-	size: T.pos(map_size)
+	size: T.pos(map_size),
+	rotate: rotate_tile
 });
 
 var new_tile_mess_type = T.obj({
@@ -51,7 +53,8 @@ var draw_mess_type = {
 	type: "Map",
 	tool: "Pen",
 	coords: coords_type,
-	tile_id: tile_id_type
+	tile_id: tile_id_type,
+	rotate: rotate_tile
 };
 
 var clear_mess_type = {
@@ -73,7 +76,8 @@ var draw_mess_type_for_display = {
 	type: "Map",
 	tool: "Pen",
 	coords: T.arr(coords_type, 20, false),
-	tile_id: tile_id_type
+	tile_id: tile_id_type,
+	rotate: rotate_tile
 };
 
 var getting_mess_type = T.any({

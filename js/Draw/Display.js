@@ -137,7 +137,8 @@ module.exports = function CrDisplay(Inter){
 				type: "Map",
 				tool: Tool.type,
 				coords: {x: x, y: y, z: TileMap.layer},
-				tile_id: Tool.tile
+				tile_id: Tool.tile,
+				rotate: Tool.getRot()
 			});
 		else if(Tool.type == "Clear")
 			Send({

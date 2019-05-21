@@ -32,7 +32,7 @@ function CrMap(map){
 	this.load = function(loaded_layers){
 		loaded_layers.forEach(layer => 
 			layer.forEach(box =>
-				Pen(box.tile_id, box.coords)
+				Pen(box.tile_id, box.coords, box.rotate)
 			)
 		);
 	}
@@ -47,8 +47,9 @@ function CrMap(map){
 
 		switch(mess.tool){
 			case "Pen":  
-				new_mess.coords = Pen(mess.tile_id, mess.coords);
+				new_mess.coords = Pen(mess.tile_id, mess.coords, mess.rotate);
 				new_mess.tile_id = mess.tile_id;
+				new_mess.rotate = mess.rotate;
 				break;
 			case "Clear": 
 				new_mess.coords = Clear(mess.coords);
@@ -87,11 +88,11 @@ function CrMap(map){
 		return {layers: map.length, height: map[0].length, width: map[0][0].length};
 	}
 
-	function Pen(tile_id, coords){
+	function Pen(tile_id, coords, rotate){
 		var tile = Tiles.getTile(tile_id);
 		if(is_coords(coords, tile.size) && is_empty(coords, tile.size)){
 
-			fillBox(tile, coords, tile.size);
+			fillBox(tile, coords, tile.size, rotate);
 			return [coords];
 		}else return [];
 	}
@@ -103,8 +104,8 @@ function CrMap(map){
 		}else return [];
 	}
 
-	function fillBox(tile, coords, size){
-		var box = {coords: coords, size: tile.size, tile_id: tile.id};
+	function fillBox(tile, coords, size, rotate){
+		var box = {coords: coords, size: tile.size, tile_id: tile.id, rotate: rotate};
 		var size = tile.size;
 
 		for(var i = size - 1; i >= 0; i--){

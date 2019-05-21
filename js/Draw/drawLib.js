@@ -20,10 +20,11 @@ exports.drawList = function(container, list, change_class){
 	}
 }
 
-exports.drawTile = function(svg_img){
-	
+exports.drawTile = function(svg_img, rotate = 0){
+
 	var img = document.createElement('img');
 	img.src = "data:image/svg+xml;base64,"+ Base64.encode(svg_img);
+	img.style.transform = "rotate(" + (90*rotate) + "deg)"
 
 	img.classList.add("tile");
 	

@@ -6,6 +6,7 @@ var tools_cont = Lib.getNode("Tools");
 
 module.exports = function CrTools(){
 	var pallet = {};
+	var rotates = {};
 	var type = "Pen";
 
 	this.addGetSet("tile", 
@@ -17,21 +18,34 @@ module.exports = function CrTools(){
 				type = "Pen";
 
 			pallet[type] = val;
-			changeTileView(val.images[0]);
+			rotates[type] = 0;
+			changeTileView(pallet[type], rotates[type]);
 		}
 	);
+
+	this.rotate = function(){
+		if(type == "Pen"){
+			rotates[type] = (rotates[type] + 1) % 4;
+		}
+	}
+
+	this.getRot = function(){
+		return rotates[type];
+	}
 
 	this.addGetSet("type", 
 		function(){
 			return type;
 		},
 		function(val){
-			type = val;
 
-			if(pallet[type]) 
-				changeTileView(pallet[type].images[0]);
+			if(val == "Rotate"){
+				this.rotate();
+			}
 			else
-				changeTileView(null);
+				type = val;
+
+			changeTileView(pallet[type], rotates[type]);
 		}
 	);
 
@@ -42,14 +56,14 @@ module.exports = function CrTools(){
 
 	var tileView = null;
 
-	function changeTileView(image){
+	function changeTileView(tile, rotate){
 		if(tileView){
 			tileView.remove();
 			tileView = null;
 		}
 
-		if(image){
-			tileView = Lib.drawTile(image);
+		if(tile){
+			tileView = Lib.drawTile(tile.images[0], rotate);
 			tools_cont.appendChild(tileView);
 		}
 	}

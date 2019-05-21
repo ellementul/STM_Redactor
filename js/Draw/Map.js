@@ -36,18 +36,19 @@ module.exports = function CrMap(){
 		loaded_layer.forEach(box =>{
 			var tile = Tiles.getTile(box.tile_id);
 
-			map_cont.children[box.coords.z].pen(tile, [box.coords]);
+			map_cont.children[box.coords.z].pen(tile, [box.coords], box.rotate);
 		});
 	}
 
 	map_cont.draw = function(mess){
 		var coords = mess.coords;
+		var rotate = mess.rotate;
 		if(coords.length == 0) return;
 
 		if(mess.tool == "Pen"){
 			var tile = Tiles.getTile(mess.tile_id);
 
-			this.children[coords[0].z].pen(tile, coords);			
+			this.children[coords[0].z].pen(tile, coords, rotate);			
 		}
 		if(mess.tool == "Clear") this.children[coords[0].z].clear(mess.coords);
 	}
@@ -101,10 +102,10 @@ function CrLayer(sizes){
 		layer[coords.y][coords.x].remove();
 	}
 
-	layer.pen = function(tile, coords){
+	layer.pen = function(tile, coords, rotate){
 		coords = coords[0];
 
-		var box = Lib.drawTile(tile.images[0]);
+		var box = Lib.drawTile(tile.images[0], rotate);
 		box.tile = tile.id;
 		box.classList.add("box");
 
